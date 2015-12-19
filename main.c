@@ -34,10 +34,12 @@ int amountOfPairsWithIdenticalNumbers(int * array, int size) {
 
 int main(int argc, char *argv[])
 {
+    int size;
+    int * array;
     srand(time(NULL));
 
-    int size = rand() % 190 + 40;
-    int * array = generateArray(size);
+    size = rand() % 190 + 40;
+    array = generateArray(size);
     printArray(array, size);
     printf("%d\n", amountOfPairsWithIdenticalNumbers(array, size));
     return 0;
