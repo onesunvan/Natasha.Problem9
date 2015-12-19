@@ -5,7 +5,7 @@ int * generateArray(int size) {//ця функція генерує масив �
     int * array = malloc(sizeof(int) * size);
     int i;
     for (i = 0; i < size; i++) {
-        array[i] = rand() % 120 - 60;
+        *(array + i) = rand() % 120 - 60;
         /*  rand() генерує випадкове число. rand() % 120 обмежує це число від 0 до 120.
             rand() % 120 - 60 здвигає цей діапазон від -60 до 60*/
     }
@@ -15,7 +15,7 @@ int * generateArray(int size) {//ця функція генерує масив �
 void printArray(int * array, int size) {
     int i;
     for (i = 0; i < size; i++) {
-        printf("%d ", array[i]);
+        printf("%d ", *(array + i));
     }
     printf("\n");
     fflush(stdout);
@@ -25,7 +25,7 @@ int amountOfPairsWithIdenticalNumbers(int * array, int size) {
     int amount = 0;
     int i;
     for (i = 1; i < size; i++) {
-        if (array[i - 1] == array[i]) {
+        if (*(array + i - 1) == *(array + i)) {
             amount++;
         }
     }
